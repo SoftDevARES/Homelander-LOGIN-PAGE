@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homelander</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css">
+</head>
+
+<body>
+    <div class="login">
+        <video autoplay muted loop id="backgroundVideo">
+            <source src="video/homelander-the-boys.3840x2160.mp4" type="video/mp4">
+            Tarayıcınız bu özelliği desteklemiyor.
+        </video>
+
+        <form id="loginForm" action="" class="login__form">
+            <h1 class="login__title">Login</h1>
+
+            <div class="login__inputs">
+                <div class="login__box">
+                    <input type="text" id="username" placeholder="Giriş Kimliği" autocomplete="off" required class="login__input">
+                    <i class="ri-folder-shield-2-fill"></i>
+                </div>
+
+                <div class="login__box">
+                    <input type="password" id="password" placeholder="Şifre" required class="login__input">
+                    <i class="ri-git-repository-private-line"></i>
+                </div>
+            </div>
+            <button type="submit" class="login__button">Giriş Yap</button>
+        </form>
+    </div>
+    <audio id="backgroundMusic">
+        <source src="music/Homelander Theme _ The Boys.mp3" type="audio/mpeg">
+        Tarayıcınız bu özelliği desteklemiyor.
+    </audio>
+</body>
+
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if (username === "ARES" && password === "123456") {
+            window.location.href = "index.html";
+        } else {
+            var music = document.getElementById('backgroundMusic');
+            music.play().catch(error => {
+                console.log('Müzik çalınamadı: ' + error);
+            });
+            alert("Giriş Kimliği yada Şifre yanlış, lütfen tekrar deneyin.");
+        }
+    });
+</script>
+
+</html>
